@@ -1,3 +1,19 @@
+---
+name: mumu_adb_control
+description: mumu模拟器adb调用技能
+version: 1.0.0
+triggers:
+  - "模拟器"
+  - "mumu"
+  - "刷"
+tools:
+  - bash
+  - read
+  - write
+---
+
+
+
 # skill.md — MuMu 模拟器 ADB 控制技能
 
 ## 概述
