@@ -81,7 +81,6 @@ client = MumuAdbClient(serial="127.0.0.1:16384")
 
 
 ```python
-# 如果config.py 配置了保存的文件夹则直接调用不需要参数以配置的为准
 client = MumuAdbClient()
 client.screencap("D:/my_screenshots/test.png")
 ```
@@ -133,9 +132,10 @@ client.screencap("result.png")
 1. **模拟器必须处于运行状态**：如果未检测到运行中的模拟器，`MumuAdbClient()` 会抛出异常。
 2. **ADB 连接**：首次连接时脚本会自动执行 `adb connect`，确保 ADB 服务已启动（可手动运行 `adb start-server`）。
 3. **坐标系统**：屏幕坐标原点 (0,0) 为左上角，向右 x 增加，向下 y 增加。可通过截图查看分辨率。
-4. **截图目录权限**：如果指定自定义保存路径，请确保父目录存在且可写；使用自动路径时需确保 `config.SCREENSHOT_DIR` 存在或脚本能自动创建。
+4. **截图目录权限**：如果config.py 配置了保存的文件夹则直接调用不需要参数以配置的为准，如果指定自定义保存路径，请确保父目录存在且可写；使用自动路径时需确保 `config.SCREENSHOT_DIR` 存在或脚本能自动创建。
 5. **文本输入**：仅适用于当前焦点在可输入控件（如输入框）。若需要输入中文，请确保模拟器输入法支持 ADB 输入（通常 Android 原生支持）。
 6. **按键代码参考**：常用按键包括 `KEYCODE_HOME`（主页）、`KEYCODE_BACK`（返回）、`KEYCODE_APP_SWITCH`（多任务）、`KEYCODE_ENTER`（回车）等。数字键 `3` 代表 Home，`4` 代表返回。
+7. **截图以后不要主动去分析截图页面**：后续会有其他技能去对截图解析，
 
 ## 常见问题
 
