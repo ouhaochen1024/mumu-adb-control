@@ -17,6 +17,7 @@ tools:
 # skill.md — MuMu 模拟器 ADB 控制技能
 
 ## 概述
+具体代码在 scripts文件夹 配置 config.py已经配好
 本技能封装了对 **MuMu 模拟器** 的 ADB 控制能力，支持自动发现正在运行的模拟器、执行截图、点击、滑动、文字输入、按键事件以及获取前台应用信息等操作。适用于 OpenClaw 等自动化流程中需要对模拟器进行 UI 交互的场景。
 
 ## 依赖环境
@@ -26,8 +27,8 @@ tools:
   - `MUMU_MANAGER_PATH`：MuMuManager.exe 的完整路径（可选，代码会尝试默认路径）。
   - `SCREENSHOT_DIR`：截图保存目录（仅在未指定保存路径时使用）。
 
-## 技能名
-`mumu_adb_control`
+## 注意
+严格调用scripts里的代码，不要私自改动 创建 移动任何文件 如果报错则报告
 
 ## 初始化
 具体代码在 scripts/ 文件夹
