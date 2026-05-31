@@ -55,7 +55,6 @@ client = MumuAdbClient()
 # 方式二：手动指定 ADB 连接串（如 "127.0.0.1:16384"）
 client = MumuAdbClient(serial="127.0.0.1:16384")
 ```
-
 - 如果只有一个模拟器在运行，会自动选择。
 - 如果有多个模拟器运行，会列出所有可用实例，等待用户输入序号选择。
 
@@ -79,7 +78,10 @@ client = MumuAdbClient(serial="127.0.0.1:16384")
 
 ### 示例 1：截图并保存到指定路径
 
+
+
 ```python
+# 如果config.py 配置了保存的文件夹则直接调用不需要参数以配置的为准
 client = MumuAdbClient()
 client.screencap("D:/my_screenshots/test.png")
 ```
