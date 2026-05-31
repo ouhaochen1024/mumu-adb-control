@@ -19,6 +19,10 @@ tools:
 
 # MuMu 模拟器 ADB 控制技能
 
+## 重要
+ 
+牢牢记住注意事项的几个点
+
 ## 概述
 
 本技能封装了对 **MuMu 模拟器** 的 ADB 控制能力，提供 `MumuAdbClient` 类，用于自动化流程中执行屏幕交互操作。支持自动发现运行中的模拟器、截图、点击、滑动、文本输入、按键事件以及获取前台应用信息。
@@ -66,7 +70,7 @@ client = MumuAdbClient(serial="127.0.0.1:16384")
 
 | 方法 | 说明 | 参数 | 返回值 |
 |------|------|------|--------|
-| `screencap(save_path=None)` | 截取当前屏幕并保存为 PNG 文件 | `save_path` (str, 可选) - 保存路径，不含则自动生成在 `SCREENSHOT_DIR` | 无（文件保存至磁盘） |
+| `screencap()` | 截取当前屏幕并保存为 PNG 文件 |无，保存路径，默认取config.py的配置 | 无（文件保存至磁盘） |
 | `tap(x, y)` | 点击屏幕指定坐标 | `x` (int), `y` (int) | 无 |
 | `swipe(x1, y1, x2, y2, duration_ms=300)` | 从起点滑动到终点 | `x1,y1` 起点；`x2,y2` 终点；`duration_ms` 滑动耗时（毫秒） | 无 |
 | `input_text(text)` | 在当前焦点输入框输入文字 | `text` (str) - 要输入的文本 | 无 |
@@ -82,7 +86,7 @@ client = MumuAdbClient(serial="127.0.0.1:16384")
 
 ```python
 client = MumuAdbClient()
-client.screencap("D:/my_screenshots/test.png")
+client.screencap()
 ```
 
 ### 示例 2：点击坐标 (500, 1000)
@@ -135,7 +139,7 @@ client.screencap("result.png")
 4. **截图目录权限**：如果config.py 配置了保存的文件夹则直接调用不需要参数以配置的为准，如果指定自定义保存路径，请确保父目录存在且可写；使用自动路径时需确保 `config.SCREENSHOT_DIR` 存在或脚本能自动创建。
 5. **文本输入**：仅适用于当前焦点在可输入控件（如输入框）。若需要输入中文，请确保模拟器输入法支持 ADB 输入（通常 Android 原生支持）。
 6. **按键代码参考**：常用按键包括 `KEYCODE_HOME`（主页）、`KEYCODE_BACK`（返回）、`KEYCODE_APP_SWITCH`（多任务）、`KEYCODE_ENTER`（回车）等。数字键 `3` 代表 Home，`4` 代表返回。
-7. **截图以后不要主动去分析截图页面**：后续会有其他技能去对截图解析，
+7. **不要主动去分析截图页面**：重要： 不要浪费时间去动去分析截图页面
 
 ## 常见问题
 
